@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort Cars</title>
+</head>
+<body>
+    <h1>Sort Cars</h1>
+    <a href="{{ url_for('index') }}">Go to homepage</a>
+    <form method="POST" action="{{ url_for('sort_cars') }}">
+        <label for="sort_attribute">Sort by:</label>
+        <select name="attribute" id="sort_attribute">
+            <option value="name">Name</option>
+            <option value="age">Age</option>
+            <option value="gpa">GPA</option>
+            <option value="mark">Mark</option>
+            <option value="fuel">Fuel</option>
+            <option value="start_year">Start Year</option>
+        </select>
+        <input type="submit" value="Sort">
+    </form>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>GPA</th>
+                <th>Mark</th>
+                <th>Fuel</th>
+                <th>Start Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car.full_name }}</td>
+                <td>{{ car.age }}</td>
+                <td>{{ car.grade }}</td>
+                <td>{{ car.mark }}</td>
+                <td>{{ car.fuel }}</td>
+                <td>{{ car.start_year }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

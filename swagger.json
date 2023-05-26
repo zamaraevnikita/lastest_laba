@@ -1,0 +1,168 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Car API",
+    "version": "1.0.0",
+    "description": "API for managing car data"
+  },
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/cars": {
+      "get": {
+        "summary": "Get all cars",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new car",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Car object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        }
+      }
+    },
+    "/cars/{full_name}": {
+      "get": {
+        "summary": "Get a car by full name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "full_name",
+            "description": "Full name of the car",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          },
+          "404": {
+            "description": "Car not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a car by full name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "full_name",
+            "description": "Full name of the car",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated car object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          },
+          "404": {
+            "description": "Car not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a car by full name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "full_name",
+            "description": "Full name of the car",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Car not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Car": {
+      "type": "object",
+      "required": [
+        "full_name",
+        "mark",
+        "fuel",
+        "grade",
+        "start_year",
+        "age"
+      ],
+      "properties": {
+        "full_name": {
+          "type": "string",
+          "description": "Full name of the car"
+        },
+        "mark": {
+          "type": "string",
+          "description": "Mark of study"
+        },
+        "fuel": {
+          "type": "integer",
+          "description": "Semester number"
+        },
+        "grade": {
+          "type": "integer",
+          "description": "Grade"
+        },
+        "start_year": {
+          "type": "integer",
+          "description": "Year of enrollment"
+        },
+        "age": {
+          "type": "integer",
+          "description": "Age of the car"
+        }
+      }
+    }
+  }
+}

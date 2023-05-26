@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Car</title>
+</head>
+<body>
+    <h1>Update Car</h1>
+    <a href="{{ url_for('index') }}">Go to homepage</a>
+    <form method="POST" action="/update_car">
+    <input type="text" name="old_full_name" placeholder="Old Full Name" required><br>
+    <input type="text" name="new_full_name" placeholder="New Full Name" required><br>
+    <input type="text" name="age" placeholder="Age" required><br>
+    <input type="text" name="grade" placeholder="Grade" required><br>
+    <input type="text" name="mark" placeholder="Mark" required><br>
+    <input type="text" name="fuel" placeholder="Fuel" required><br>
+    <input type="text" name="start_year" placeholder="Start Year" required><br>
+    <button type="submit">Update Car</button>
+    </form>
+
+</body>
+</html>

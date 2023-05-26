@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a new car</title>
+</head>
+<body>
+    <h1>Add a new car</h1>
+    <a href="{{ url_for('index') }}">Go to homepage</a>
+    <form method="POST" action="/add_car">
+        <input type="text" name="full_name" placeholder="Full Name" required><br>
+        <input type="text" name="age" placeholder="Age" required><br>
+        <input type="text" name="grade" placeholder="Grade" required><br>
+        <input type="text" name="mark" placeholder="Mark" required><br>
+        <input type="number" name="fuel" placeholder="Fuel" required><br>
+        <input type="number" name="start_year" placeholder="Start Year" required><br>
+
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>
